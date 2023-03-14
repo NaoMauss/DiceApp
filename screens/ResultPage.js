@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, Text, StyleSheet, Image, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { styles } from '../components/stylesQuestButton';
+import React, { useState } from "react";
+import { TouchableOpacity, Text, StyleSheet, Image, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { styles } from "../components/stylesQuestButton";
 
 const images = [
-  require('./image/g.png'),
-  require('./image/cyberpunk.png'),
-  require('./image/butterfly.png'),
+  require("./image/g.png"),
+  require("./image/cyberpunk.png"),
+  require("./image/butterfly.png"),
 ];
 
 import {
   QuizContainer,
   QuizRectangle,
   QuizText,
-} from '../components/QuestStyle';
+} from "../components/QuestStyle";
 
-const ResultPage = () => {
-
+const ResultPage = ({ route }) => {
+  const { option1, option2 } = route.params;
+  console.log(option1, option2); // Get the parameters from the navigation
   const navigation = useNavigation(); // Use useNavigation
 
-
   const ShowMoreResultPress = () => {
-    navigation.navigate('MoreResults'); // Navigate to Show more results
+    navigation.navigate("MoreResults"); // Navigate to Show more results
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: 'white' }}>
+    <View style={{ flex: 1, backgroundColor: "white" }}>
       <QuizContainer>
         <QuizRectangle>
           <QuizText>RANKING</QuizText>
@@ -45,9 +45,7 @@ const ResultPage = () => {
           <Text style={styles.podiumNumber}>3</Text>
           <Image source={images[2]} style={styles.podiumImage} />
         </View>
-
       </View>
-
 
       <TouchableOpacity
         style={styles.ShowMoreButton}
@@ -55,7 +53,6 @@ const ResultPage = () => {
       >
         <Text style={styles.ShowMoreText}>Show more results</Text>
       </TouchableOpacity>
-
     </View>
   );
 };

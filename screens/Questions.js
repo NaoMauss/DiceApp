@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { styles } from '../components/stylesQuestButton';
+import React, { useState } from "react";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { styles } from "../components/stylesQuestButton";
 
 import {
   QuizContainer,
@@ -12,11 +12,11 @@ import {
   QuestionsQuiz,
   QuestionsText,
   AnswerContainer,
-} from '../components/QuestStyle';
+} from "../components/QuestStyle";
 
 const Questions = () => {
-  const [selectedOption1, setSelectedOption1] = useState('');
-  const [selectedOption2, setSelectedOption2] = useState('');
+  const [selectedOption1, setSelectedOption1] = useState("");
+  const [selectedOption2, setSelectedOption2] = useState("");
 
   const navigation = useNavigation(); // Use useNavigation
 
@@ -28,16 +28,23 @@ const Questions = () => {
     setSelectedOption2(option);
   };
 
-  const renderOption = (optionText, optionLetter, isOptionSelected, handleOptionPress) => {
+  const renderOption = (
+    optionText,
+    optionLetter,
+    isOptionSelected,
+    handleOptionPress
+  ) => {
     return (
       <TouchableOpacity
         onPress={() => handleOptionPress(optionLetter)}
-        style={[
-          styles.option,
-          isOptionSelected && styles.selectedOption,
-        ]}
+        style={[styles.option, isOptionSelected && styles.selectedOption]}
       >
-        <Text style={[styles.optionText, isOptionSelected && styles.selectedOptionText]}>
+        <Text
+          style={[
+            styles.optionText,
+            isOptionSelected && styles.selectedOptionText,
+          ]}
+        >
           {optionText}
         </Text>
       </TouchableOpacity>
@@ -46,13 +53,15 @@ const Questions = () => {
 
   const handleResultPress = () => {
     if (selectedOption1 && selectedOption2) {
-      console.log('Navigate to Result Page');
-      navigation.navigate('ResultPage'); // Navigate to ResultPage
+      console.log("Navigate to Result Page");
+      navigation.navigate("ResultPage", {
+        option1: selectedOption1,
+        option2: selectedOption2,
+      }); // Navigate to ResultPage
     } else {
-      alert('Please select both options before clicking on Result');
+      alert("Please select both options before clicking on Result");
     }
   };
-
 
   return (
     <>
@@ -67,27 +76,66 @@ const Questions = () => {
           <QuestionsQuiz>
             <QuestionsText>What is the capital of France?</QuestionsText>
             <AnswerContainer>
-              {renderOption('London', 'A', selectedOption1 === 'A', handleOptionPress1)}
-              {renderOption('Paris', 'B', selectedOption1 === 'B', handleOptionPress1)}
+              {renderOption(
+                "London",
+                "A",
+                selectedOption1 === "A",
+                handleOptionPress1
+              )}
+              {renderOption(
+                "Paris",
+                "B",
+                selectedOption1 === "B",
+                handleOptionPress1
+              )}
             </AnswerContainer>
             <AnswerContainer>
-              {renderOption('Rome', 'C', selectedOption1 === 'C', handleOptionPress1)}
-              {renderOption('Madrid', 'D', selectedOption1 === 'D', handleOptionPress1)}
+              {renderOption(
+                "Rome",
+                "C",
+                selectedOption1 === "C",
+                handleOptionPress1
+              )}
+              {renderOption(
+                "Madrid",
+                "D",
+                selectedOption1 === "D",
+                handleOptionPress1
+              )}
             </AnswerContainer>
           </QuestionsQuiz>
 
           <QuestionsQuiz>
             <QuestionsText>What is the capital of Italy?</QuestionsText>
             <AnswerContainer>
-              {renderOption('London', 'A', selectedOption2 === 'A', handleOptionPress2)}
-              {renderOption('Rome', 'B', selectedOption2 === 'B', handleOptionPress2)}
+              {renderOption(
+                "London",
+                "A",
+                selectedOption2 === "A",
+                handleOptionPress2
+              )}
+              {renderOption(
+                "Rome",
+                "B",
+                selectedOption2 === "B",
+                handleOptionPress2
+              )}
             </AnswerContainer>
             <AnswerContainer>
-              {renderOption('Madrid', 'C', selectedOption2 === 'C', handleOptionPress2)}
-              {renderOption('Athens', 'D', selectedOption2 === 'D', handleOptionPress2)}
+              {renderOption(
+                "Madrid",
+                "C",
+                selectedOption2 === "C",
+                handleOptionPress2
+              )}
+              {renderOption(
+                "Athens",
+                "D",
+                selectedOption2 === "D",
+                handleOptionPress2
+              )}
             </AnswerContainer>
           </QuestionsQuiz>
-
 
           <TouchableOpacity
             style={styles.resultButton}
