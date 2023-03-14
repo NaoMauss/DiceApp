@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const images = [
   require("./../assets/icon/home.png"),
-  require("./../assets/icon/menu.png"),
+  require("./../assets/icon/game.png"),
   require("./../assets/icon/speech-bubble.png"),
   require("./../assets/icon/menu.png"),
 ];
@@ -18,6 +18,8 @@ const Button = () => {
     } else if (index === 0) {
       navigation.navigate("Home");
     } else if (index === 1) {
+      navigation.navigate("Games");
+    } else if (index === 3) {
       navigation.navigate("Menu");
     } else {
       console.log(`Button ${index + 1} pressed`);

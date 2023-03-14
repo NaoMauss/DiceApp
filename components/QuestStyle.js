@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 // colors
 export const Colors = {
-  primary: '#ffffff',
-  yelow: '#e9bd1f'
+  primary: "#ffffff",
+  yelow: "#e9bd1f",
 };
 
 const { primary, yelow } = Colors;
@@ -58,6 +57,28 @@ export const QuizRectangle = styled.View`
 `;
 
 export const QuizText = styled.Text`
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+`;
+
+export const DrinkContainer = styled.View`
+  width: 100%;
+  align-items: center;
+  background-color: ${Colors.primary};
+  margin-top: 100px;
+`;
+
+export const DrinkRectangle = styled.View`
+  width: 150px;
+  height: 50px;
+  background-color: ${Colors.yelow};
+  justify-content: center;
+  border-radius: 5px;
+`;
+
+export const DrinkText = styled.Text`
   font-size: 25px;
   text-align: center;
   font-weight: bold;

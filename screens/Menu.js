@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Box } from "@react-native-material/core";
 
 const images = [
   require("./image/g.png"),
@@ -11,6 +12,9 @@ import {
   QuizContainer,
   QuizRectangle,
   QuizText,
+  DrinkContainer,
+  DrinkRectangle,
+  DrinkText,
 } from "../components/QuestStyle";
 
 const Menu = () => {
@@ -18,21 +22,50 @@ const Menu = () => {
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <QuizContainer>
         <QuizRectangle>
-          <QuizText>MENU</QuizText>
+          <QuizText>FOOD</QuizText>
         </QuizRectangle>
       </QuizContainer>
 
       <View style={styles.menuImg}>
-        <Image
-          source={images[0]}
-          style={{ width: 125, height: 125, marginBottom: 20 }}
-        />
-        <Image
-          source={images[1]}
-          style={{ width: 125, height: 125, marginBottom: 20 }}
-        />
-        <Image source={images[2]} style={{ width: 125, height: 125 }} />
+        <View style={styles.foodSection}>
+          <Image
+            source={images[0]}
+            style={{ width: 125, height: 125, marginBottom: 20 }}
+          />
+          <View style={styles.foodDescription}>
+            <Text style={{ fontWeight: "bold" }}>Food Name</Text>
+            <Text>Food Description</Text>
+          </View>
+        </View>
+
+        <View style={styles.foodSection}>
+          <Image
+            source={images[0]}
+            style={{ width: 125, height: 125, marginBottom: 20 }}
+          />
+          <View style={styles.foodDescription}>
+            <Text style={{ fontWeight: "bold" }}>Food Name</Text>
+            <Text>Food Description</Text>
+          </View>
+        </View>
+
+        <View style={styles.foodSection}>
+          <Image
+            source={images[0]}
+            style={{ width: 125, height: 125, marginBottom: 20 }}
+          />
+          <View style={styles.foodDescription}>
+            <Text style={{ fontWeight: "bold" }}>Food Name</Text>
+            <Text>Food Description</Text>
+          </View>
+        </View>
       </View>
+
+      <DrinkContainer>
+        <DrinkRectangle>
+          <DrinkText>DRINKS</DrinkText>
+        </DrinkRectangle>
+      </DrinkContainer>
     </View>
   );
 };
@@ -41,6 +74,15 @@ const styles = StyleSheet.create({
   menuImg: {
     flex: 1,
     flexDirection: "column",
+  },
+  foodSection: {
+    flexDirection: "row",
+    left: 30,
+  },
+  foodDescription: {
+    flexDirection: "column",
+    top: 50,
+    left: 20,
   },
 });
 
