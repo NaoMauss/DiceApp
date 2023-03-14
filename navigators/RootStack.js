@@ -9,6 +9,8 @@ import MoreResults from "../screens/MoreResults";
 import Home from "../screens/Home";
 import Menu from "../screens/Menu";
 import Games from "../screens/Games";
+import GameInfo from "../screens/GameInfo";
+import GameRecommendation from "../screens/GameRecommendation";
 
 const Stack = createStackNavigator();
 
@@ -45,6 +47,16 @@ const RootStack = () => {
         <Stack.Screen
           name="Games"
           component={Games}
+          options={{ headerMode: "none" }}
+        />
+        <Stack.Screen
+          name="GameInfo"
+          component={GameInfo}
+          options={{ headerMode: "none" }}
+        />
+        <Stack.Screen
+          name="gameRecommendation"
+          component={GameRecommendation}
           options={{ headerMode: "none" }}
         />
       </Stack.Navigator>

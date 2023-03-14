@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Box } from "@react-native-material/core";
 import { useNavigation } from "@react-navigation/native";
 import Carousel from "react-native-snap-carousel";
+
 const images = [
   require("./image/g.png"),
   require("./image/cyberpunk.png"),
@@ -25,6 +26,8 @@ const Home = () => {
       </View>
     );
   };
+
+  const navigation = useNavigation();
 
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
@@ -57,7 +60,7 @@ const Home = () => {
       {/* Discover Your Destiny */}
 
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Questions")}>
           <Box
             w={360}
             h={130}
@@ -94,7 +97,7 @@ const Home = () => {
         <Text style={styles.WhatsOn}>What's on</Text>
 
         <View style={styles.WhatsOnBtn}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Questions")}>
             <Image
               style={styles.WhatsOnImg}
               source={require("../assets/ranking.png")}

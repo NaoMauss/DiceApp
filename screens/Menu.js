@@ -12,9 +12,6 @@ import {
   QuizContainer,
   QuizRectangle,
   QuizText,
-  DrinkContainer,
-  DrinkRectangle,
-  DrinkText,
 } from "../components/QuestStyle";
 
 const Menu = () => {
@@ -60,12 +57,6 @@ const Menu = () => {
           </View>
         </View>
       </View>
-
-      <DrinkContainer>
-        <DrinkRectangle>
-          <DrinkText>DRINKS</DrinkText>
-        </DrinkRectangle>
-      </DrinkContainer>
     </View>
   );
 };

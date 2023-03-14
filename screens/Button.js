@@ -21,6 +21,8 @@ const Button = () => {
       navigation.navigate("Games");
     } else if (index === 3) {
       navigation.navigate("Menu");
+    } else if (index === 5) {
+      navigation.navigate("GameRecommendation");
     } else {
       console.log(`Button ${index + 1} pressed`);
     }
