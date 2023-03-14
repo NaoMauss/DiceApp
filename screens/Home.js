@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Box } from "@react-native-material/core";
 import { useNavigation } from "@react-navigation/native";
-
+import Carousel from "react-native-snap-carousel";
 const images = [
   require("./image/g.png"),
   require("./image/cyberpunk.png"),
@@ -16,6 +16,16 @@ import {
 } from "../components/QuestStyle";
 
 const Home = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const renderCarouselItem = ({ item, index }) => {
+    return (
+      <View>
+        <Image source={item} style={{ width: 200, height: 200 }} />
+      </View>
+    );
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <QuizContainer>
@@ -23,6 +33,26 @@ const Home = () => {
           <QuizText>New Games</QuizText>
         </QuizRectangle>
       </QuizContainer>
+
+      <View
+        style={{
+          backgroundColor: "white",
+          alignItems: "center",
+          marginTop: 20,
+        }}
+      >
+        <Carousel
+          data={images}
+          renderItem={renderCarouselItem}
+          sliderWidth={300}
+          itemWidth={200}
+          loop={true}
+          autoplay={true}
+          autoplayDelay={1000}
+          autoplayInterval={2000}
+          onSnapToItem={(index) => setActiveSlide(index)}
+        />
+      </View>
 
       {/* Discover Your Destiny */}
 
@@ -32,7 +62,7 @@ const Home = () => {
             w={360}
             h={130}
             left={15}
-            top={270}
+            top={40}
             style={{
               backgroundColor: "white",
               borderRadius: 5,
@@ -67,13 +97,13 @@ const Home = () => {
           <TouchableOpacity>
             <Image
               style={styles.WhatsOnImg}
-              source={require("../assets/testDiscover.png")}
+              source={require("../assets/ranking.png")}
             />
           </TouchableOpacity>
           <TouchableOpacity>
             <Image
               style={styles.WhatsOnImg}
-              source={require("../assets/testDiscover.png")}
+              source={require("../assets/news.png")}
             />
           </TouchableOpacity>
         </View>
@@ -93,11 +123,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     top: 5,
   },
-  //   titleBox: {
-  //     flex: 1,
-  //     alignItems: "center",
-  //     top: 25,
-  //   },
   discoverImg: {
     width: 110,
     height: 110,
@@ -121,19 +146,19 @@ const styles = StyleSheet.create({
     top: 20,
   },
   WhatsOn: {
-    top: 290,
+    top: 70,
     left: 130,
     fontSize: 30,
   },
   WhatsOnBtn: {
-    top: 300,
+    top: 100,
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
   },
   WhatsOnImg: {
-    width: 100,
-    height: 100,
+    width: 170,
+    height: 150,
   },
 });
 

@@ -7,6 +7,7 @@ import ResultPage from "./../screens/ResultPage";
 import Button from "./../screens/Button";
 import MoreResults from "../screens/MoreResults";
 import Home from "../screens/Home";
+import Menu from "../screens/Menu";
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,11 @@ const RootStack = () => {
         <Stack.Screen
           name="MoreResults"
           component={MoreResults}
+          options={{ headerMode: "none" }}
+        />
+        <Stack.Screen
+          name="Menu"
+          component={Menu}
           options={{ headerMode: "none" }}
         />
       </Stack.Navigator>

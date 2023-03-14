@@ -17,6 +17,8 @@ const Button = () => {
       navigation.navigate("Questions");
     } else if (index === 0) {
       navigation.navigate("Home");
+    } else if (index === 1) {
+      navigation.navigate("Menu");
     } else {
       console.log(`Button ${index + 1} pressed`);
     }
